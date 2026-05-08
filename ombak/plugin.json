@@ -1,0 +1,16 @@
+{
+  "slug": "ombak",
+  "name": "ombak",
+  "version": "1",
+  "license": "proprietary",
+  "brand": "ombak",
+  "author": "Ben Campbell",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": []
+}
