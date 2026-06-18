@@ -3,6 +3,7 @@
 
 bool Detune::active() {
 	return outputs[OUT_PLUS_OUTPUT].isConnected() || outputs[OUT_MINUS_OUTPUT].isConnected() || outputs[THRU_OUTPUT].isConnected();
+	// check if any outputs are connected
 }
 
 int Detune::channels() {
@@ -20,31 +21,42 @@ void Detune::modulateChannel(int c) {
 
 void Detune::processChannel(const ProcessArgs& args, int c) {
 	float inCV = inputs[IN_INPUT].getVoltage(c);
+	// acquire input voltage/channel/however it works
 
 	if (_cents[c] != _lastCents[c] || inCV != _lastInCV[c]) {
+		// if the in cents or inCV knobs have been adjusted...
 		_lastCents[c] = _cents[c];
 		_lastInCV[c] = inCV;
+		// store values 
 		if (_cents[c] < 0.001f) {
+			/* ? if delta cents is less than max precision,
+			pipe out inCV without (further?) modification */
 			_plusCV[c] = inCV;
 			_minusCV[c] = inCV;
 		}
 		else {
 			float semitone = cvToSemitone(inCV);
+			// convert input CV to Semitone (object?) 
+			// add delta cents to that value, convert that to output CV
 			_plusCV[c] = semitoneToCV(semitone + _cents[c]);
 			_minusCV[c] = semitoneToCV(semitone - _cents[c]);
 		}
 	}
-
+	
+	// pipe CV, modified CV to output channels
 	outputs[THRU_OUTPUT].setChannels(_channels);
 	outputs[THRU_OUTPUT].setVoltage(inCV, c);
+
 	outputs[OUT_PLUS_OUTPUT].setChannels(_channels);
 	outputs[OUT_PLUS_OUTPUT].setVoltage(_plusCV[c], c);
+
 	outputs[OUT_MINUS_OUTPUT].setChannels(_channels);
 	outputs[OUT_MINUS_OUTPUT].setVoltage(_minusCV[c], c);
 }
 
 void Detune::processBypass(const ProcessArgs& args) {
-	int cn = channels();
+	// pipes input to all channels when module is bypassed
+	int cn = channels(); // <- inputs[IN_INPUT].getChannels()
 	outputs[THRU_OUTPUT].setChannels(cn);
 	outputs[OUT_PLUS_OUTPUT].setChannels(cn);
 	outputs[OUT_MINUS_OUTPUT].setChannels(cn);
