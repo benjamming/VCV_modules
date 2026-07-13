@@ -57,8 +57,8 @@ struct Ombak : Module {
 	// with headroom on both sides, right up to where it starts to
 	// split into two tones. Adjust these three constants any time to
 	// change the knob's range or default.
-	static constexpr float DELTA_MIN = -15.f;
-	static constexpr float DELTA_MAX = 15.f;
+	static constexpr float DELTA_MIN = -25.f;
+	static constexpr float DELTA_MAX = 25.f;
 	static constexpr float DELTA_DEFAULT = 7.f;
 
 	Ombak() {
@@ -73,6 +73,7 @@ struct Ombak : Module {
 		// sensible bypass route. SHIMMER creates a different pitch
 		// entirely, so it's intentionally left silent when bypassed.
 		configBypass(VOCT_INPUT, THRU_OUTPUT);
+		configBypass(VOCT_INPUT, SHIMMER_OUTPUT);
 	}
 
 	void process(const ProcessArgs& args) override {
