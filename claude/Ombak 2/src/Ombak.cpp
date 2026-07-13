@@ -40,7 +40,7 @@ struct Ombak : Module {
 	// F0: reference frequency at 0V. Matches Rack's 1V/oct convention
 	// (0V = C4). Change this (or turn it into a param/input) if you
 	// later want a user-adjustable base frequency.
-	static constexpr float BASE_FREQ = dsp::FREQ_C4; // 261.6256 Hz
+	static const float BASE_FREQ = dsp::FREQ_C4; // 261.6256 Hz
 
 	// DELTA knob range, in Hz.
 	// "Ombak" beating rates for a shimmering, single-tone effect are
