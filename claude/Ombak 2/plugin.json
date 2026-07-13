@@ -1,0 +1,26 @@
+{
+  "slug": "Ombak",
+  "name": "Ombak",
+  "version": "2.0.0",
+  "license": "CC0-1.0",
+  "brand": "Ombak",
+  "author": "Your Name",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "Ombak",
+      "name": "Ombak",
+      "description": "Adds a fixed Hz offset to a 1V/octave pitch signal, creating a beating/shimmering second voice",
+      "tags": [
+        "Utility",
+        "Effect"
+      ]
+    }
+  ]
+}

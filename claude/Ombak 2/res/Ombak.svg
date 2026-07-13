@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.64mm" height="128.5mm" viewBox="0 0 40.64 128.5">
+  <!-- Panel background -->
+  <rect x="0" y="0" width="40.64" height="128.5" fill="#f2efe6"/>
+  <rect x="0.4" y="0.4" width="39.84" height="127.7" fill="none" stroke="#222222" stroke-width="0.3"/>
+
+  <!-- "Ombak" wave motif (decorative only, no text: Rack's SVG renderer
+       does not support text/fonts, per the Panel Guide) -->
+  <path d="M 3 14 Q 8.16 9, 13.32 14 T 23.64 14 T 33.96 14 T 40 14"
+        fill="none" stroke="#3a6f8f" stroke-width="0.9" stroke-linecap="round"/>
+  <path d="M 3 17.5 Q 8.16 13.5, 13.32 17.5 T 23.64 17.5 T 33.96 17.5 T 40 17.5"
+        fill="none" stroke="#3a6f8f" stroke-width="0.5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- DELTA knob bezel accent -->
+  <circle cx="20.32" cy="32" r="7.5" fill="none" stroke="#3a6f8f" stroke-width="0.4"/>
+
+  <!-- Divider line above ports -->
+  <line x1="4" y1="48" x2="36.64" y2="48" stroke="#222222" stroke-width="0.2"/>
+
+  <!-- Port bezel accents -->
+  <circle cx="20.32" cy="58" r="4.6" fill="none" stroke="#666666" stroke-width="0.3"/>
+  <circle cx="20.32" cy="88" r="4.6" fill="none" stroke="#666666" stroke-width="0.3"/>
+  <circle cx="20.32" cy="110" r="4.6" fill="none" stroke="#666666" stroke-width="0.3"/>
+
+  <!-- Output section shading (inverted background convention for outputs,
+       per the Panel Guide: outputs at y=88 and y=110) -->
+  <rect x="4" y="78" width="32.64" height="42" fill="#222222" opacity="0.05"/>
+</svg>

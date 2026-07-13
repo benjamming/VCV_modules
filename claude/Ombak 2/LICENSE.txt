@@ -1,0 +1,12 @@
+This plugin's source code (everything in this repository except where noted
+below) is released under CC0-1.0 (public domain). See:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+You are free to change this license before releasing your plugin. See
+https://vcvrack.com/manual/PluginLicensing for guidance, especially if you
+plan to make a commercial plugin -- in that case, update the "license"
+field in plugin.json accordingly (e.g. "proprietary").
+
+Panel graphics (res/Ombak.svg) are original, created for this project, and
+are covered by the same license unless you replace them with your own
+artwork.
