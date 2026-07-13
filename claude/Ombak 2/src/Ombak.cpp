@@ -40,7 +40,14 @@ struct Ombak : Module {
 	// F0: reference frequency at 0V. Matches Rack's 1V/oct convention
 	// (0V = C4). Change this (or turn it into a param/input) if you
 	// later want a user-adjustable base frequency.
-	static const float BASE_FREQ = dsp::FREQ_C4; // 261.6256 Hz
+	// Declared here, defined (with its actual value) just below the
+	// struct. A float static member can't take dsp::FREQ_C4 as an
+	// in-class initializer unless it's constexpr -- and dsp::FREQ_C4
+	// itself is only declared `const` in Rack's headers, not
+	// `constexpr` -- so the value has to be assigned out-of-class
+	// instead. See Ombak.cpp, just after this struct's closing brace.
+	static const float BASE_FREQ;
+	// old code: static const float BASE_FREQ = dsp::FREQ_C4; // 261.6256 Hz
 
 	// DELTA knob range, in Hz.
 	// "Ombak" beating rates for a shimmering, single-tone effect are
@@ -99,6 +106,10 @@ struct Ombak : Module {
 		outputs[SHIMMER_OUTPUT].setChannels(channels);
 	}
 };
+
+// Out-of-class definition of BASE_FREQ (see the declaration inside the
+// struct above for why this can't just be an in-class initializer).
+const float Ombak::BASE_FREQ = dsp::FREQ_C4;
 
 
 struct OmbakWidget : ModuleWidget {
