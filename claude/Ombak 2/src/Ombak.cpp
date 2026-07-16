@@ -59,15 +59,15 @@ struct Ombak : Module {
 	// change the knob's range or default.
 	static constexpr float DELTA_MIN = -25.f;
 	static constexpr float DELTA_MAX = 25.f;
-	static constexpr float DELTA_DEFAULT = 7.f;
+	static constexpr float DELTA_DEFAULT = 0.f;
 
 	Ombak() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
 
-		configParam(DELTA_PARAM, DELTA_MIN, DELTA_MAX, DELTA_DEFAULT, "Frequency offset", " Hz");
-		configInput(VOCT_INPUT, "1V/octave pitch");
-		configOutput(THRU_OUTPUT, "Pitch pass-through");
-		configOutput(SHIMMER_OUTPUT, "Shifted pitch (ombak)");
+		configParam(DELTA_PARAM, DELTA_MIN, DELTA_MAX, DELTA_DEFAULT, "Frequency difference", " Hz");
+		configInput(VOCT_INPUT, "Pitch input (1V/octave)");
+		configOutput(THRU_OUTPUT, "Pitch through output (1V/octave)");
+		configOutput(SHIMMER_OUTPUT, "Pitch + delta hz output (1V/octave)");
 
 		// THRU is a direct, unmodified copy of the input, so it's a
 		// sensible bypass route. SHIMMER creates a different pitch
